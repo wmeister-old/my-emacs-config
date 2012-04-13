@@ -72,3 +72,8 @@
 (add-to-list 'auto-mode-alist '("\\.opa$" . opa-js-mode)) ;; <-- Set the default mode here
 (add-to-list 'auto-mode-alist '("\\.js\\.opa$" . opa-js-mode))
 (add-to-list 'auto-mode-alist '("\\.classic\\.opa$" . opa-classic-mode))
+
+;; scala mode
+(add-to-list 'load-path "~/.emacs.d/scala-emacs")
+(require 'scala-mode-auto)
+(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
