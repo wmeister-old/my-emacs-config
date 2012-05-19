@@ -6,6 +6,9 @@
 ;; no welcome buffer
 (setq inhibit-startup-message t)
 
+;; enable iswitchb-mode by default
+(iswitchb-mode 1)
+
 ;; show column number
 (column-number-mode 1)
 
@@ -77,3 +80,7 @@
 (add-to-list 'load-path "~/.emacs.d/scala-emacs")
 (require 'scala-mode-auto)
 (add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
+
+;; slime
+(setq inferior-lisp-program "sbcl")
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
