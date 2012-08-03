@@ -19,9 +19,9 @@
 (menu-bar-mode 0)
 
 ;; color theme
-(require 'color-theme)
-(require 'color-theme-solarized)
-(color-theme-solarized-light)
+;(require 'color-theme)
+;(require 'color-theme-solarized)
+;(color-theme-solarized-light)
 
 ;; auto-complete mode
 (require 'auto-complete-config)
@@ -52,10 +52,17 @@
 (setq auto-mode-alist (cons '("\.lua$" . lua-mode) auto-mode-alist))
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 
+
+;; no paredit mode in clojure mode (needs to be before package.el gets loaded)
+(add-hook 'clojure-mode-hook (lambda () (paredit-mode nil)))
+
 ;; package.el
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+			 ("marmalade" . "http://marmalade-repo.org/packages")
+			 ("melpa" . "http://melpa.milkbox.net/packages/")))
+
 (package-initialize)
 
 ;; clojure mode
@@ -82,5 +89,23 @@
 (add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
 
 ;; slime
+;; if this is commented out it's so clojure-jack-in will work
+;; they dont seem to play well together
+;; to get this to work uninstall the slime package and uncomment
 (setq inferior-lisp-program "sbcl")
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (solarized-light)))
+ '(custom-safe-themes (quote ("1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
