@@ -18,11 +18,6 @@
 ;; hide menu
 (menu-bar-mode 0)
 
-;; color theme
-;(require 'color-theme)
-;(require 'color-theme-solarized)
-;(color-theme-solarized-light)
-
 ;; auto-complete mode
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
@@ -96,6 +91,7 @@
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 
 
+;; color theme
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -109,3 +105,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; w3m
+(require 'w3m-load)
