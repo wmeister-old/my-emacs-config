@@ -1,0 +1,7 @@
+;; Object gh/gh-gist-api/wmeister86
+;; EIEIO PERSISTENT OBJECT
+(gh-cache "gh/gh-gist-api/wmeister86"
+  :file "wmeister86"
+  :entries #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data ())
+  :timestamp 1344389351.653358
+  )
